@@ -42,13 +42,13 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen grid lg:grid-cols-2 bg-gray-100">
+    <div className="min-h-screen grid lg:grid-cols-2 bg-gray-50">
       {/* Left Column - Login Form */}
-      <div className="flex items-center justify-center p-6 lg:p-8 bg-white shadow-lg">
+      <div className="flex items-center justify-center p-6 lg:p-8 bg-white shadow-xl rounded-lg">
         <div className="w-full max-w-sm space-y-8">
           <div className="space-y-2 text-center">
-            <h1 className="text-4xl font-bold text-indigo-600 tracking-tight">GoobjoogPay</h1>
-            <p className="text-lg text-gray-500">Sign in to continue</p>
+            <h1 className="text-4xl font-bold text-[#FFA701] tracking-tight">GoobjoogPay</h1>
+            <p className="text-lg text-gray-600">Sign in to continue</p>
           </div>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
@@ -68,7 +68,7 @@ const Login = () => {
                 <Input
                   type="tel"
                   placeholder="Phone number"
-                  className="pl-[108px] py-5 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="pl-[108px] py-5 border-gray-300 focus:ring-[#FFA701] focus:border-[#FFA701]"
                   value={loginData.phone_number}
                   onChange={(e) => setLoginData({ ...loginData, phone_number: e.target.value })}
                   required
@@ -79,7 +79,7 @@ const Login = () => {
               <Input
                 type="password"
                 placeholder="Enter password"
-                className="py-5 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
+                className="py-5 border-gray-300 focus:ring-[#FFA701] focus:border-[#FFA701]"
                 value={loginData.password}
                 onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
                 required
@@ -87,14 +87,14 @@ const Login = () => {
             </div>
             <Button
               type="submit"
-              className="w-full bg-indigo-600 hover:bg-indigo-500 text-white h-12 text-base font-medium rounded-lg"
+              className="w-full bg-[#FFA701] hover:bg-[#e09500] text-white h-12 text-base font-medium rounded-lg"
               disabled={isLoading}
             >
               {isLoading ? "Signing in..." : "Continue"}
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
             <div className="text-center mt-4">
-              <Link to="/register" className="text-sm text-indigo-600 hover:text-indigo-700 transition-colors">
+              <Link to="/register" className="text-sm text-[#2E17BC] hover:text-[#1e0fa5] transition-colors">
                 Don't have an account? Register here
               </Link>
             </div>
@@ -103,7 +103,7 @@ const Login = () => {
       </div>
       {/* Right Column - Modern Gradient Background */}
       <div className="hidden lg:block">
-        <div className="h-full bg-gradient-to-br from-indigo-700 via-indigo-500 to-indigo-400 flex items-center justify-center text-white p-12">
+        <div className="h-full bg-gradient-to-br from-[#2E17BC] via-[#4A37D5] to-[#7A5EFF] flex items-center justify-center text-white p-12">
           <div className="space-y-4 text-center">
             <h2 className="text-3xl font-bold">Secure Payments with GoobjoogPay</h2>
             <p className="text-lg max-w-md">Fast, secure, and reliable payment services for all your transactions.</p>
