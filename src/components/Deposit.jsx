@@ -61,7 +61,7 @@ const Deposit = ({ closeModal, fetchBalance, pendingPayment }) => {
     }
 
     try {
-      const response = await fetch("https://api.barrowpay.com/api/deposit/", {
+      const response = await fetch("https://api.goobjoogpay.com/api/deposit/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -96,12 +96,15 @@ const Deposit = ({ closeModal, fetchBalance, pendingPayment }) => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     const access = userData.access;
     try {
-      const response = await fetch("https://api.barrowpay.com/auth/users/me/", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${access}`,
-        },
-      });
+      const response = await fetch(
+        "https://api.goobjoogpay.com/auth/users/me/",
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${access}`,
+          },
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -137,7 +140,9 @@ const Deposit = ({ closeModal, fetchBalance, pendingPayment }) => {
 
   return (
     <div className="mt-20 px-5">
-      <h2 className="text-2xl font-semibold text-primary-700 mb-6">Deposit Funds</h2>
+      <h2 className="text-2xl font-semibold text-primary-700 mb-6">
+        Deposit Funds
+      </h2>
 
       {/* Deposit Form */}
       <form onSubmit={handleDeposit}>
@@ -208,7 +213,9 @@ const Deposit = ({ closeModal, fetchBalance, pendingPayment }) => {
             <p className="text-sm text-primary-600">
               To make a deposit, please use the USSD code below:
               <br />
-              <strong>*712*{depositData.phone_number}*{depositData.amount}#</strong>
+              <strong>
+                *712*{depositData.phone_number}*{depositData.amount}#
+              </strong>
             </p>
             <button
               type="button"
@@ -232,26 +239,44 @@ const Deposit = ({ closeModal, fetchBalance, pendingPayment }) => {
 
       {/* Deposit Summary Table (Moved down and dashed borders) */}
       <div className="mt-6">
-        <h3 className="text-xl font-semibold text-primary-700 mb-2">Deposit Summary</h3>
+        <h3 className="text-xl font-semibold text-primary-700 mb-2">
+          Deposit Summary
+        </h3>
         <table className="min-w-full table-auto">
           <thead>
             <tr>
-              <th className="px-4 py-2 text-left font-medium text-primary-600 border-b-2 border-dashed">Field</th>
-              <th className="px-4 py-2 text-left font-medium text-primary-600 border-b-2 border-dashed">Value</th>
+              <th className="px-4 py-2 text-left font-medium text-primary-600 border-b-2 border-dashed">
+                Field
+              </th>
+              <th className="px-4 py-2 text-left font-medium text-primary-600 border-b-2 border-dashed">
+                Value
+              </th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td className="px-4 py-2 text-primary-600 border-b border-dashed">Wallet Method</td>
-              <td className="px-4 py-2 text-primary-600 border-b border-dashed">{depositData.wallet_name}</td>
+              <td className="px-4 py-2 text-primary-600 border-b border-dashed">
+                Wallet Method
+              </td>
+              <td className="px-4 py-2 text-primary-600 border-b border-dashed">
+                {depositData.wallet_name}
+              </td>
             </tr>
             <tr>
-              <td className="px-4 py-2 text-primary-600 border-b border-dashed">Amount</td>
-              <td className="px-4 py-2 text-primary-600 border-b border-dashed">${depositData.amount}</td>
+              <td className="px-4 py-2 text-primary-600 border-b border-dashed">
+                Amount
+              </td>
+              <td className="px-4 py-2 text-primary-600 border-b border-dashed">
+                ${depositData.amount}
+              </td>
             </tr>
             <tr>
-              <td className="px-4 py-2 text-primary-600 border-b border-dashed">Phone Number</td>
-              <td className="px-4 py-2 text-primary-600 border-b border-dashed">{depositData.phone_number}</td>
+              <td className="px-4 py-2 text-primary-600 border-b border-dashed">
+                Phone Number
+              </td>
+              <td className="px-4 py-2 text-primary-600 border-b border-dashed">
+                {depositData.phone_number}
+              </td>
             </tr>
           </tbody>
         </table>
