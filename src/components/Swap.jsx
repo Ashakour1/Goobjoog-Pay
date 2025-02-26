@@ -33,7 +33,7 @@ const Swap = () => {
 
       try {
         const response = await fetch(
-          "https://api.barrowpay.com/api/swap-rate/",
+          "https://api.goobjoogpay.com/api/swap-rate/",
           {
             method: "POST", // Changed to POST request
             headers: {
@@ -90,7 +90,7 @@ const Swap = () => {
     const access = userData.access;
 
     try {
-      const response = await fetch("https://api.barrowpay.com/api/swap/", {
+      const response = await fetch("https://api.goobjoogpay.com/api/swap/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -100,7 +100,7 @@ const Swap = () => {
       });
 
       const responseData = await response.json();
-      console.log("swap response",responseData)
+      console.log("swap response", responseData);
       if (response.ok) {
         navigate("/");
         setSwapData({
