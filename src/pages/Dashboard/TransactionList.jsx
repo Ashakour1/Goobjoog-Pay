@@ -30,15 +30,12 @@ const TransactionList = () => {
     try {
       const userData = JSON.parse(localStorage.getItem("userData"));
       const access = userData.access;
-      fetch(
-        `https://api.barrowpay.com/api/`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${access}`,
-          },
-        }
-      );
+      fetch(`https://api.goobjoogpay.com/api/`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${access}`,
+        },
+      });
     } catch (error) {
       console.error("Error:", error);
     }
@@ -59,7 +56,7 @@ const TransactionList = () => {
     // }
     try {
       const response = await fetch(
-        "https://api.barrowpay.com/api/transactions/",
+        "https://api.goobjoogpay.com/api/transactions/",
         {
           headers: {
             Authorization: `Bearer ${access}`,
