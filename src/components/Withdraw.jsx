@@ -18,12 +18,12 @@ const Withdraw = ({ closeModal, fetchBalance, pendingPayment }) => {
     const formData = new FormData(e.target);
     const withdrawData = {
       wallet_name: method || "",
-      phone_number:formData.get("phone_number"),
+      phone_number: formData.get("phone_number"),
       amount: Number.parseFloat(formData.get("amount")),
     };
 
     try {
-      const response = await fetch("https://api.barrowpay.com/api/payout/", {
+      const response = await fetch("https://api.goobjoogpay.com/api/payout/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -87,7 +87,7 @@ const Withdraw = ({ closeModal, fetchBalance, pendingPayment }) => {
           >
             Phone number
           </label>
-          
+
           <div className="relative">
             <div className="absolute inset-y-0 left-0 flex items-center pl-4">
               <div className="flex items-center gap-2 pr-3 border-r">
