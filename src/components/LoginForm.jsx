@@ -22,11 +22,14 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("https://api.barrowpay.com/auth/jwt/create/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(loginData),
-      });
+      const response = await fetch(
+        "https://api.goobjoogpay.com/auth/jwt/create/",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(loginData),
+        }
+      );
 
       const data = await response.json();
       if (!response.ok) throw new Error(data.detail);
@@ -47,7 +50,9 @@ const Login = () => {
       <div className="flex items-center justify-center p-6 lg:p-8 bg-white shadow-xl rounded-lg">
         <div className="w-full max-w-sm space-y-8">
           <div className="space-y-2 text-center">
-            <h1 className="text-4xl font-bold text-[#FFA701] tracking-tight">GoobjoogPay</h1>
+            <h1 className="text-4xl font-bold text-[#FFA701] tracking-tight">
+              GoobjoogPay
+            </h1>
             <p className="text-lg text-gray-600">Sign in to continue</p>
           </div>
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -70,7 +75,9 @@ const Login = () => {
                   placeholder="Phone number"
                   className="pl-[108px] py-5 border-gray-300 focus:ring-[#FFA701] focus:border-[#FFA701]"
                   value={loginData.phone_number}
-                  onChange={(e) => setLoginData({ ...loginData, phone_number: e.target.value })}
+                  onChange={(e) =>
+                    setLoginData({ ...loginData, phone_number: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -81,7 +88,9 @@ const Login = () => {
                 placeholder="Enter password"
                 className="py-5 border-gray-300 focus:ring-[#FFA701] focus:border-[#FFA701]"
                 value={loginData.password}
-                onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
+                onChange={(e) =>
+                  setLoginData({ ...loginData, password: e.target.value })
+                }
                 required
               />
             </div>
@@ -94,7 +103,10 @@ const Login = () => {
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
             <div className="text-center mt-4">
-              <Link to="/register" className="text-sm text-[#2E17BC] hover:text-[#1e0fa5] transition-colors">
+              <Link
+                to="/register"
+                className="text-sm text-[#2E17BC] hover:text-[#1e0fa5] transition-colors"
+              >
                 Don't have an account? Register here
               </Link>
             </div>
@@ -105,8 +117,13 @@ const Login = () => {
       <div className="hidden lg:block">
         <div className="h-full bg-gradient-to-br from-[#2E17BC] via-[#4A37D5] to-[#7A5EFF] flex items-center justify-center text-white p-12">
           <div className="space-y-4 text-center">
-            <h2 className="text-3xl font-bold">Secure Payments with GoobjoogPay</h2>
-            <p className="text-lg max-w-md">Fast, secure, and reliable payment services for all your transactions.</p>
+            <h2 className="text-3xl font-bold">
+              Secure Payments with GoobjoogPay
+            </h2>
+            <p className="text-lg max-w-md">
+              Fast, secure, and reliable payment services for all your
+              transactions.
+            </p>
           </div>
         </div>
       </div>
