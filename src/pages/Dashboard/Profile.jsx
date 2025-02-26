@@ -38,11 +38,14 @@ export default function ProfilePage() {
     }
 
     try {
-      const response = await fetch("https://api.barrowpay.com/auth/users/me/", {
-        headers: {
-          Authorization: `Bearer ${access}`,
-        },
-      });
+      const response = await fetch(
+        "https://api.goobjoogpay.com/auth/users/me/",
+        {
+          headers: {
+            Authorization: `Bearer ${access}`,
+          },
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
